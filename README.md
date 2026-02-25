@@ -1,1 +1,0 @@
-# amish-pratap-singh-1.github.io
