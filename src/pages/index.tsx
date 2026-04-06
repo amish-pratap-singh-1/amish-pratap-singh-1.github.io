@@ -1,21 +1,21 @@
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Head from "next/head";
+import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import Experience from "../components/Experience";
+import Skills from "../components/Skills";
+import Education from "../components/Education";
 
 export default function Home() {
   return (
-    <div className={`${geistSans.className} ${geistMono.className}`}>
-      <main className="">
-        <div>hello</div>
-      </main>
-    </div>
+    <Layout>
+      <Head>
+        <title>Amish Pratap Singh</title>
+        <meta name="description" content="Portfolio of Amish Pratap Singh" />
+      </Head>
+      <Hero />
+      <Experience />
+      <Skills />
+      <Education />
+    </Layout>
   );
 }
