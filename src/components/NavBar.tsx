@@ -12,8 +12,9 @@ const NavBar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full max-w-4xl mx-auto px-6 py-4 md:py-8 flex flex-col relative z-50"
+            className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border"
         >
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col relative w-full">
             <div className="flex justify-between items-center w-full">
                 <div className="text-xl md:text-2xl text-foreground tracking-tight font-bold z-50">amish</div>
 
@@ -69,6 +70,7 @@ const NavBar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+            </div>
         </motion.nav>
     )
 }
