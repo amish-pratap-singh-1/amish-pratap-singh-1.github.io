@@ -1,11 +1,16 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi'
+import { useTheme } from 'next-themes'
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => setMounted(true), []);
 
     return (
         <motion.nav
@@ -24,14 +29,27 @@ const NavBar = () => {
                     <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
                 </div>
 
-                {/* Mobile Hamburger Toggle */}
-                <button
-                    className="md:hidden p-2 text-secondary hover:text-primary transition-colors rounded-full bg-accent-muted/50 border border-border z-50"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle Menu"
-                >
-                    {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-                </button>
+                <div className="flex items-center gap-3 z-50">
+                    {mounted ? (
+                        <button
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            className="p-2 text-secondary hover:text-primary transition-colors rounded-full bg-accent-muted/50 border border-border backdrop-blur-sm"
+                            aria-label="Toggle Dark Mode"
+                        >
+                            {theme === 'dark' ? <HiSun size={20} /> : <HiMoon size={20} />}
+                        </button>
+                    ) : (
+                        <div className="w-[38px] h-[38px]" />
+                    )}
+                    {/* Mobile Hamburger Toggle */}
+                    <button
+                        className="md:hidden p-2 text-secondary hover:text-primary transition-colors rounded-full bg-accent-muted/50 border border-border"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu Content */}
