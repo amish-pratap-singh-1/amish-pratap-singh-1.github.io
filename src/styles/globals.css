@@ -31,7 +31,7 @@
   --color-surface: var(--color-surface);
   --color-border: var(--color-border);
   
-  --font-sans: var(--font-space-grotesk);
+  --font-sans: var(--font-roboto);
   --font-mono: var(--font-jetbrains-mono);
 }
 

@@ -1,12 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Roboto, JetBrains_Mono } from "next/font/google";
 import Layout from "../components/Layout";
 import { AnimatePresence } from "framer-motion";
 
-const spaceGrotesk = Space_Grotesk({
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-roboto",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -16,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground`}>
+    <div className={`${roboto.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground`}>
       <Layout>
         <AnimatePresence mode="wait">
           <Component {...pageProps} />
